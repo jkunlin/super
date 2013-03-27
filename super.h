@@ -527,7 +527,7 @@ void Maxclique::expand_dyn(Vertices Va, Vertices R) {
 				level++;
 				expand_dyn(Vp, Rp);
 				level--;
-	//			Rp.dispose();
+				Rp.dispose();
 			}
 			else if (Q.size() > QMAX.size()) { 
 				std::cout << "step = " << pk << " current max. clique size = " << Q.size() << std::endl; 
