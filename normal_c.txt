@@ -391,5 +391,5 @@ Maximum clique: 5 34 52 77 119 134 141 178 192 243 259 264 287 289 379 385
 Size = 16
 Number of steps = 2088338
 Time = 4
-Time (precise) = 4.28
+Time (precise) = 4.36
 

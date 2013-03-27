@@ -40,6 +40,7 @@ class Maxclique {
 		void init_colors();
 		void set_degrees(Maxclique&);
 		int size() const { return sz; }
+		void resize(const int size) { sz = size; }
 		void push(const int ii) { v[sz++].set_i(ii); };
 		void pop() { sz--; };
 		Vertex& at(const int ii) const { return v[ii]; };
@@ -49,7 +50,6 @@ class Maxclique {
 		int *i;
 		int sz;
 		public:
-		static int di;
 #ifdef DBG
 		void dbg_i(const string msg="") const {
 			std::cout << msg << " Class: [";
@@ -60,13 +60,15 @@ class Maxclique {
 #endif
 		ColorClass() : sz(0), i(0) {}
 		ColorClass(const int sz) : sz(sz), i(0) { init(sz); }
-		~ColorClass() { if (i) delete [] i; ++di;}
+		~ColorClass() { if (i) delete [] i;}
 		void init(const int sz) { i = new int[sz]; rewind(); }
 		void push(const int ii) { i[sz++] = ii; };
 		void pop() { sz--; };
+		void pop(const int p_ci) { i[p_ci] = -1; }
 		void rewind() { sz = 0; };
 		int size() const { return sz; }
 		int& at(const int ii) const { return i[ii]; }
+		int& end() const { return i[sz - 1]; }
 		ColorClass& operator=(const ColorClass& dh) {
 			for (int j = 0; j < dh.sz; j++) i[j] = dh.i[j];
 			sz = dh.sz;
@@ -75,7 +77,9 @@ class Maxclique {
 	};
 	Vertices V;
 	ColorClass *C, QMAX, Q;
+#ifdef SAT
 	std::set<int> *sat;
+#endif
 	class StepCount {
 		int i1, i2;
 		public:
@@ -90,10 +94,19 @@ class Maxclique {
 	bool connection(const int i, const int j) const { return e[i][j]; }
 	bool conflict(const int, const ColorClass&);
 	void cut(const Vertices&, Vertices&);
+	void cut_new(Vertices&, Vertices&, int);
 	void color_sort(Vertices&, bool = false);
+	void re_color(int, int);
+	int count_conflict(int, const ColorClass&, int&);
+	bool mcs_conflict(int, const ColorClass&);
+
+	void re_color_sort(Vertices&, Vertices&);
+#ifdef SAT
 	void sat_color_sort(Vertices&);
+#endif
 	void expand(Vertices);
 	void expand_dyn(Vertices);
+	void expand_dyn(Vertices, Vertices);
 	void _mcq(int*&, int&, bool);
 	void degree_sort(Vertices &R) { R.set_degrees(*this); R.sort(); }
 	public:
@@ -124,8 +137,6 @@ class Maxclique {
 	};
 };
 
-int Maxclique::ColorClass::di = 0;
-
 Maxclique::Maxclique (const bool* const* conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {
 	assert(conn!=0 && sz>0);
 	for (int i=0; i < sz; i++) V.push(i);
@@ -133,7 +144,9 @@ Maxclique::Maxclique (const bool* const* conn, const int sz, const float tt) : p
 	C = new ColorClass[sz + 1];
 	for (int i=0; i < sz + 1; i++) C[i].init(sz);
 	S = new StepCount[sz];
+#ifdef SAT	
 	sat = new std::set<int> [sz];
+#endif
 }
 
 void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) { 
@@ -147,7 +160,7 @@ void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) {
 		  S[i].set_i2(0);
 		  }
 		 */
-		expand_dyn(V);
+		expand_dyn(V, V);
 	}
 	else
 		expand(V);
@@ -185,11 +198,39 @@ bool Maxclique::conflict(const int pi, const ColorClass &A) {
 void Maxclique::cut(const Vertices &A, Vertices &B) {
 	int pi = A.end().get_i();
 	for (int i = 0; i < A.size() - 1; i++) {
-		if (connection(pi, A.at(i).get_i()))
+		if (connection(pi, A.at(i).get_i())){
 			B.push(A.at(i).get_i());
+			//			B.end().set_degree(A.at(i).get_degree());
+		}
 	}
 }
 
+void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {
+	bool find = false;
+	for(int i = 0; i < Va.size(); ++i) {
+		if(Va.at(i).get_i() == pi) {
+			find = true;
+			continue;
+		}
+		if(connection(pi, Va.at(i).get_i()))
+			Vp.push(Va.at(i).get_i());
+		if(find) {
+			Va.at(i - 1).set_i(Va.at(i).get_i());
+		}
+	}
+	Va.pop();
+}
+/*
+void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {
+	for(int i = 0; i < Va.size(); ++i) {
+		if(Va.at(i).get_i() == pi)
+			Va.at(i).set_i(-1);
+		if(Va.at(i).get_i() != -1 && connection(pi, Va.at(i).get_i()))
+			Vp.push(Va.at(i).get_i());
+	}
+}
+*/
+#ifdef SAT
 void Maxclique::sat_color_sort(Vertices &R) {
 	int maxno = 1;
 	int min_k = QMAX.size() - Q.size() + 1;
@@ -199,36 +240,36 @@ void Maxclique::sat_color_sort(Vertices &R) {
 	int max_sat;
 	int max_sat_i;
 
-//	R.set_degrees(*this);
-/*	
-	for(int i = R.size() - 1; i > 0; --i) {
+	//	R.set_degrees(*this);
+	/*	
+		for(int i = R.size() - 1; i > 0; --i) {
 		if(R.at(i).get_degree() > R.at(i - 1).get_degree()) {
-			std::swap(R.at(i), R.at(i - 1));
+		std::swap(R.at(i), R.at(i - 1));
 		}
-		
+
 		sat[i].clear();
-	}
-*/	
+		}
+	 */	
 	/*
-	max_sat = R.at(0).get_degree();
-	max_sat_i = 0;
-	for(int i = 0; i < R.size(); ++i) {
-		if(R.at(i).get_degree() > max_sat) {
-			max_sat = R.at(i).get_degree();
-			max_sat_i = i;
-		}
-		sat[i].clear();
-	}
-	std::swap(R.at(0), R.at(max_sat_i));
-*/
+	   max_sat = R.at(0).get_degree();
+	   max_sat_i = 0;
+	   for(int i = 0; i < R.size(); ++i) {
+	   if(R.at(i).get_degree() > max_sat) {
+	   max_sat = R.at(i).get_degree();
+	   max_sat_i = i;
+	   }
+	   sat[i].clear();
+	   }
+	   std::swap(R.at(0), R.at(max_sat_i));
+	 */
 	C[1].push(R.at(0).get_i());
 	R.at(0).set_degree(k < min_k ? 0 : 1);
-	
-		
+
+
 	int j = 1;
 	int pi;
 	for (int i=1; i < R.size(); i++) {
-		
+
 		pi = R.at(i - 1).get_i();
 		//update sat, set R.at(i) the largest sat vertex
 		max_sat = 0;
@@ -244,14 +285,14 @@ void Maxclique::sat_color_sort(Vertices &R) {
 		}
 		// connection component checked
 		//if(max_sat = 0) {
-			//do something
+		//do something
 		//	}
-		 
+
 		if(max_sat_i != i) {
 			std::swap(R.at(i), R.at(max_sat_i));
 			sat[i].swap(sat[max_sat_i]);
 		}
-		
+
 		int pi = R.at(i).get_i();
 		k = 1;
 		while (conflict(pi, C[k]))
@@ -275,41 +316,125 @@ void Maxclique::sat_color_sort(Vertices &R) {
 		}
 
 }
+#endif
 
+int Maxclique::count_conflict(int pi, const ColorClass& A, int &q_ci) {
+	int num = 0;
+	bool first = true;
+	for(int i = 0; i < A.size(); ++i) {
+		if(A.at(i) != -1 && connection(pi, A.at(i))) {
+			if(first) {
+				first = false;
+				q_ci = i;
+			}
+		}
+			++num;
+	}
+	return num;
+}
+bool Maxclique::mcs_conflict(int pi, const ColorClass& A) {
+	for(int i = 0; i < A.size(); ++i) {
+		if(A.at(i) != -1 && connection(pi, A.at(i))) {
+			return true;
+		}
+	}
+	return false;
+}
+void Maxclique::re_color(int k, int min_k) {
+	int pi = C[k].end();
+	int q_ci = -1;
+	for(int k1 = 1; k1 < min_k - 1; ++k1) {
+		if(count_conflict(pi, C[k1], q_ci) == 1) {
+			for(int k2 = k1 + 1; k2 <= min_k - 1; ++k2) {
+				if(!mcs_conflict(C[k1].at(q_ci), C[k2])) {
+					C[k].pop();
+					C[k1].push(pi);
+					C[k2].push(C[k1].at(q_ci));
+					C[k1].pop(q_ci);
+				}
+			}
+		}
+	}
+}
+
+void Maxclique::re_color_sort(Vertices &Va, Vertices &R) {
+	int maxno = 1;
+	int min_k = QMAX.size() - Q.size() + 1;
+	C[1].rewind();
+	C[2].rewind();
+	int k = 1;
+	
+	for (int i=0; i < Va.size(); i++) {
+		int pi = Va.at(i).get_i();
+		k = 1;
+		while (mcs_conflict(pi, C[k]))
+			k++;
+		if (k > maxno) {
+			maxno = k;
+			C[maxno + 1].rewind();
+		}
+		C[k].push(pi);
+		// assert maxno >= min_k
+		
+		if (k >= min_k && k == maxno) {
+			re_color(k, min_k);
+
+			if(C[maxno].size() == 0)
+				maxno -= 1;
+		}
+		
+	}
+	int j = Va.size() - 1;
+	if(min_k <= 0) min_k = 1;
+	//last color maybe better than this one, try it when no bug
+	for(k = maxno; k >= min_k; --k) {
+		for(int i = 0; i < C[k].size(); ++i) {
+			if(C[k].at(i) == -1)
+				continue;
+			R.at(j).set_i(C[k].at(i));
+			R.at(j--).set_degree(k);
+		} 
+	}
+	if(j >= 0) {
+		R.at(j).set_i(C[k - 1].at(C[k - 1].size() - 1)); //it maybe -1, but no problem i think
+		R.at(j).set_degree(min_k - 1);
+	}
+
+}
+//origin color,modify branch strage, it is right
 void Maxclique::color_sort(Vertices &R, bool sorted) {
-  int j = 0;
-  int maxno = 1;
-  int min_k = QMAX.size() - Q.size() + 1;
-  C[1].rewind();
-  C[2].rewind();
-  int k = 1;
-  for (int i=0; i < R.size(); i++) {
-    int pi = R.at(i).get_i();
-    k = 1;
-    while (conflict(pi, C[k]))
-      k++;
-    if (k > maxno) {
-      maxno = k;
-      C[maxno + 1].rewind();
-    }
-    C[k].push(pi);
-    if (k < min_k) {
-      R.at(j++).set_i(pi);
-    }
-  }
-  if (j > 0) R.at(j-1).set_degree(0);
-  if (min_k <= 0) min_k = 1;
-  for (k = min_k; k <= maxno; k++)
-	  for(int i = C[k].size() - 1; i >= 0; --i) {
-		  R.at(j).set_i(C[k].at(i));
-		  R.at(j++).set_degree(k);
-	  }
-	/*
-	  for (int i = 0; i < C[k].size(); i++) {
-		  R.at(j).set_i(C[k].at(i));
-		  R.at(j++).set_degree(k);
-	  }
-	  */
+	int j = 0;
+	int maxno = 1;
+	int min_k = QMAX.size() - Q.size() + 1;
+	C[1].rewind();
+	C[2].rewind();
+	int k = 1;
+	for (int i=0; i < R.size(); i++) {
+		int pi = R.at(i).get_i();
+		k = 1;
+		while (conflict(pi, C[k]))
+			k++;
+		if (k > maxno) {
+			maxno = k;
+			C[maxno + 1].rewind();
+		}
+		C[k].push(pi);
+		if (k < min_k) {
+			R.at(j++).set_i(pi);
+		}
+	}
+	if (j > 0) R.at(j-1).set_degree(0);
+	if (min_k <= 0) min_k = 1;
+	for (k = min_k; k <= maxno; k++)
+		for(int i = C[k].size() - 1; i >= 0; --i) {
+			R.at(j).set_i(C[k].at(i));
+			R.at(j++).set_degree(k);
+		}
+
+	//	   for (int i = 0; i < C[k].size(); i++) {
+	//	   R.at(j).set_i(C[k].at(i));
+	//	   R.at(j++).set_degree(k);
+	//	   }
 }
 
 void Maxclique::expand(Vertices R) {
@@ -347,17 +472,16 @@ void Maxclique::expand_dyn(Vertices R) {
 			cut(R, Rp);
 			if (Rp.size()) {
 				if ((float)S[level].get_i1()/++pk < Tlimit) {
-						degree_sort(Rp);
-			//		sat_color_sort(Rp);
-					color_sort(Rp);
-					if(level == 1) std::cout<<"color number = "<<Rp.end().get_degree()<<std::endl;
+					degree_sort(Rp);
+					//		sat_color_sort(Rp);
+					//	if(level == 1) std::cout<<"color number ("<<pk<<") = "<<Rp.end().get_degree()<<std::endl;
 				}
 				/*		else if ((float)S[level].get_i1()/++pk < Tlimit) {
 						degree_sort(Rp);
 						color_sort(Rp);
 						}
 				 */
-				else	color_sort(Rp);
+				color_sort(Rp);
 				S[level].inc_i1();
 				level++;
 				expand_dyn(Rp);
@@ -377,4 +501,46 @@ void Maxclique::expand_dyn(Vertices R) {
 	}
 }
 
+void Maxclique::expand_dyn(Vertices Va, Vertices R) {
+	S[level].set_i1(S[level].get_i1() + S[level - 1].get_i1() - S[level].get_i2());
+	S[level].set_i2(S[level - 1].get_i1());
+	while (R.size()) {
+		if (Q.size() + R.end().get_degree() > QMAX.size()) {
+			Q.push(R.end().get_i());
+			Vertices Vp(R.size());
+			cut_new(Va, Vp, R.end().get_i());
+			if (Vp.size()) {
+				Vertices Rp(Vp.size());
+				Rp.resize(Vp.size());
+				if ((float)S[level].get_i1()/++pk < Tlimit) {
+					degree_sort(Vp);
+					//		sat_color_sort(Rp);
+					re_color_sort(Vp, Rp);
+			//		if(level == 1) std::cout<<"color number ("<<pk<<") = "<<Rp.end().get_degree()<<std::endl;
+				}
+				else {
+					color_sort(Vp);
+					Rp = Vp;
+					//re_color_sort(Vp, Rp);
+				}
+				S[level].inc_i1();
+				level++;
+				expand_dyn(Vp, Rp);
+				level--;
+	//			Rp.dispose();
+			}
+			else if (Q.size() > QMAX.size()) { 
+				std::cout << "step = " << pk << " current max. clique size = " << Q.size() << std::endl; 
+				QMAX = Q;
+			}    
+			Vp.dispose();
+			Q.pop();
+		}
+		else {
+			return;
+		}
+		R.pop();
+	//	Va.pop();
+	}
+}
 #endif
