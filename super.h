@@ -504,8 +504,10 @@ void Maxclique::expand_dyn(Vertices R) {
 void Maxclique::expand_dyn(Vertices Va, Vertices R) {
 	S[level].set_i1(S[level].get_i1() + S[level - 1].get_i1() - S[level].get_i2());
 	S[level].set_i2(S[level - 1].get_i1());
+	bool Rp_equ_Vp = false;
 	while (R.size()) {
 		if (Q.size() + R.end().get_degree() > QMAX.size()) {
+			Rp_equ_Vp = false;
 			Q.push(R.end().get_i());
 			Vertices Vp(R.size());
 			cut_new(Va, Vp, R.end().get_i());
@@ -521,13 +523,14 @@ void Maxclique::expand_dyn(Vertices Va, Vertices R) {
 				else {
 					color_sort(Vp);
 					Rp = Vp;
+					Rp_equ_Vp = true;
 					//re_color_sort(Vp, Rp);
 				}
 				S[level].inc_i1();
 				level++;
 				expand_dyn(Vp, Rp);
 				level--;
-				Rp.dispose();
+				if(!Rp_equ_Vp) Rp.dispose();
 			}
 			else if (Q.size() > QMAX.size()) { 
 				std::cout << "step = " << pk << " current max. clique size = " << Q.size() << std::endl; 
