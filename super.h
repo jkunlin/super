@@ -204,7 +204,7 @@ void Maxclique::cut(const Vertices &A, Vertices &B) {
 		}
 	}
 }
-
+/*
 void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {
 	bool find = false;
 	for(int i = 0; i < Va.size(); ++i) {
@@ -220,7 +220,7 @@ void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {
 	}
 	Va.pop();
 }
-/*
+*/
 void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {
 	for(int i = 0; i < Va.size(); ++i) {
 		if(Va.at(i).get_i() == pi)
@@ -229,7 +229,7 @@ void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {
 			Vp.push(Va.at(i).get_i());
 	}
 }
-*/
+
 #ifdef SAT
 void Maxclique::sat_color_sort(Vertices &R) {
 	int maxno = 1;
@@ -522,15 +522,14 @@ void Maxclique::expand_dyn(Vertices Va, Vertices R) {
 				}
 				else {
 					color_sort(Vp);
-					Rp = Vp;
 					Rp_equ_Vp = true;
 					//re_color_sort(Vp, Rp);
 				}
 				S[level].inc_i1();
 				level++;
-				expand_dyn(Vp, Rp);
+				expand_dyn(Vp, Rp_equ_Vp ? Vp : Rp);
 				level--;
-				if(!Rp_equ_Vp) Rp.dispose();
+				Rp.dispose();
 			}
 			else if (Q.size() > QMAX.size()) { 
 				std::cout << "step = " << pk << " current max. clique size = " << Q.size() << std::endl; 
