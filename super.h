@@ -100,7 +100,7 @@ class Maxclique {
 	int count_conflict(int, const ColorClass&, int&);
 	bool mcs_conflict(int, const ColorClass&);
 
-	void re_color_sort(Vertices&, Vertices&);
+	void re_color_sort(Vertices&, Vertices&, bool = true);
 #ifdef SAT
 	void sat_color_sort(Vertices&);
 #endif
@@ -343,13 +343,15 @@ bool Maxclique::mcs_conflict(int pi, const ColorClass& A) {
 void Maxclique::re_color(int k, int min_k) {
 	int pi = C[k].end();
 	int q_ci = -1;
+	int qi = -1;
 	for(int k1 = 1; k1 < min_k - 1; ++k1) {
 		if(count_conflict(pi, C[k1], q_ci) == 1) {
+			qi = C[k1].at(q_ci);
 			for(int k2 = k1 + 1; k2 <= min_k - 1; ++k2) {
-				if(!mcs_conflict(C[k1].at(q_ci), C[k2])) {
+				if(!mcs_conflict(qi, C[k2])) {
 					C[k].pop();
 					C[k1].push(pi);
-					C[k2].push(C[k1].at(q_ci));
+					C[k2].push(qi);
 					C[k1].pop(q_ci);
 				}
 			}
@@ -357,7 +359,7 @@ void Maxclique::re_color(int k, int min_k) {
 	}
 }
 
-void Maxclique::re_color_sort(Vertices &Va, Vertices &R) {
+void Maxclique::re_color_sort(Vertices &Va, Vertices &R, bool recolor) {
 	int maxno = 1;
 	int min_k = QMAX.size() - Q.size() + 1;
 	C[1].rewind();
@@ -376,7 +378,7 @@ void Maxclique::re_color_sort(Vertices &Va, Vertices &R) {
 		C[k].push(pi);
 		// assert maxno >= min_k
 		
-		if (k >= min_k && k == maxno) {
+		if (recolor && k >= min_k && k == maxno) {
 			re_color(k, min_k);
 
 			if(C[maxno].size() == 0)
@@ -504,10 +506,8 @@ void Maxclique::expand_dyn(Vertices R) {
 void Maxclique::expand_dyn(Vertices Va, Vertices R) {
 	S[level].set_i1(S[level].get_i1() + S[level - 1].get_i1() - S[level].get_i2());
 	S[level].set_i2(S[level - 1].get_i1());
-	bool Rp_equ_Vp = false;
 	while (R.size()) {
 		if (Q.size() + R.end().get_degree() > QMAX.size()) {
-			Rp_equ_Vp = false;
 			Q.push(R.end().get_i());
 			Vertices Vp(R.size());
 			cut_new(Va, Vp, R.end().get_i());
@@ -517,17 +517,16 @@ void Maxclique::expand_dyn(Vertices Va, Vertices R) {
 				if ((float)S[level].get_i1()/++pk < Tlimit) {
 					degree_sort(Vp);
 					//		sat_color_sort(Rp);
-					re_color_sort(Vp, Rp);
 			//		if(level == 1) std::cout<<"color number ("<<pk<<") = "<<Rp.end().get_degree()<<std::endl;
 				}
-				else {
-					color_sort(Vp);
-					Rp_equ_Vp = true;
-					//re_color_sort(Vp, Rp);
-				}
+				if ((float)S[level].get_i1()/pk < Tlimit / 15) 
+					re_color_sort(Vp, Rp);
+				else 
+					re_color_sort(Vp, Rp, false);
+
 				S[level].inc_i1();
 				level++;
-				expand_dyn(Vp, Rp_equ_Vp ? Vp : Rp);
+				expand_dyn(Vp, Rp);
 				level--;
 				Rp.dispose();
 			}
