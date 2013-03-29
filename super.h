@@ -9,7 +9,7 @@ using namespace std;
 #endif
 
 class Maxclique {
-	const bool* const* e;
+	bool **e;
 	int pk, level;
 	const float Tlimit;
 	class Vertices {
@@ -108,6 +108,7 @@ class Maxclique {
 	void expand_dyn(Vertices);
 	void expand_dyn(Vertices, Vertices);
 	void _mcq(int*&, int&, bool);
+	void permute_vertices();
 	void degree_sort(Vertices &R) { R.set_degrees(*this); R.sort(); }
 	public:
 #ifdef DBG
@@ -126,7 +127,7 @@ class Maxclique {
 		}
 	}
 #endif
-	Maxclique(const bool* const*, const int, const float=0.025);
+	Maxclique(bool **, const int, const float=0.025);
 	int steps() const { return pk; }
 	void mcq(int* &maxclique, int &sz) { _mcq(maxclique, sz, false); }
 	void mcqdyn(int* &maxclique, int &sz) { _mcq(maxclique, sz, true); }
@@ -137,7 +138,7 @@ class Maxclique {
 	};
 };
 
-Maxclique::Maxclique (const bool* const* conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {
+Maxclique::Maxclique (bool **conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {
 	assert(conn!=0 && sz>0);
 	for (int i=0; i < sz; i++) V.push(i);
 	e = conn;
@@ -149,9 +150,38 @@ Maxclique::Maxclique (const bool* const* conn, const int sz, const float tt) : p
 #endif
 }
 
+void Maxclique::permute_vertices() {
+	int sz = V.size();
+	bool **e_tmp = new bool *[sz];
+	for(int i = 0; i < sz; ++i) {
+		e_tmp[i] = e[i];
+	}
+	V.dbg_v();
+	for(int i = 0; i < sz; ++i) {
+		e[i] = e_tmp[V.at(i).get_i()];
+		V.at(i).set_i(i);
+	}
+	for(int i = 0; i < sz; ++i) {
+		for(int j = 0; j < sz; ++j) {
+			std::cout<<'('<<i<<','<<j<<','<<e[i][j]<<") ";
+		}
+		std::cout<<std::endl;
+	}
+		std::cout<<std::endl;
+		std::cout<<std::endl;
+	for(int i = 0; i < sz; ++i) {
+		for(int j = 0; j < sz; ++j) {
+			std::cout<<'('<<i<<','<<j<<','<<e_tmp[i][j]<<") ";
+		}
+		std::cout<<std::endl;
+	}
+	delete [] e_tmp;
+}
+
 void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) { 
 	V.set_degrees(*this);
 	V.sort();
+	permute_vertices();
 	V.init_colors();
 	if (dyn) {
 		/**********construct funtion have done the init
@@ -160,7 +190,7 @@ void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) {
 		  S[i].set_i2(0);
 		  }
 		 */
-		expand_dyn(V, V);
+		expand_dyn(V);
 	}
 	else
 		expand(V);
