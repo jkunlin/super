@@ -1,0 +1,370 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+C	mcqd.h	/^  ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+C	super.h	/^	ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+ColorClass	mcqd.h	/^    ColorClass() : sz(0), i(0) {}$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+ColorClass	mcqd.h	/^    ColorClass(const int sz) : sz(sz), i(0) { init(sz); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+ColorClass	mcqd.h	/^  class ColorClass {$/;"	c	class:Maxclique	access:private
+ColorClass	super.h	/^		ColorClass() : sz(0), i(0) {}$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+ColorClass	super.h	/^		ColorClass(const int sz) : sz(sz), i(0) { init(sz); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+ColorClass	super.h	/^	class ColorClass {$/;"	c	class:Maxclique	access:private
+MCQD	mcqd.h	25;"	d
+Maxclique	mcqd.h	/^  Maxclique(const bool* const*, const int, const float=0.025);$/;"	p	class:Maxclique	access:public	signature:(const bool* const*, const int, const float=0.025)
+Maxclique	mcqd.h	/^Maxclique::Maxclique (const bool* const* conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {$/;"	f	class:Maxclique	signature:(const bool* const* conn, const int sz, const float tt)
+Maxclique	mcqd.h	/^class Maxclique {$/;"	c
+Maxclique	super.h	/^	Maxclique(bool **, const int, const float=0.025);$/;"	p	class:Maxclique	access:public	signature:(bool **, const int, const float=0.025)
+Maxclique	super.h	/^Maxclique::Maxclique (bool **conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {$/;"	f	class:Maxclique	signature:(bool **conn, const int sz, const float tt)
+Maxclique	super.h	/^class Maxclique {$/;"	c
+Maxclique::C	mcqd.h	/^  ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Maxclique::C	super.h	/^	ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Maxclique::ColorClass	mcqd.h	/^  class ColorClass {$/;"	c	class:Maxclique	access:private
+Maxclique::ColorClass	super.h	/^	class ColorClass {$/;"	c	class:Maxclique	access:private
+Maxclique::ColorClass::ColorClass	mcqd.h	/^    ColorClass() : sz(0), i(0) {}$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::ColorClass	mcqd.h	/^    ColorClass(const int sz) : sz(sz), i(0) { init(sz); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+Maxclique::ColorClass::ColorClass	super.h	/^		ColorClass() : sz(0), i(0) {}$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::ColorClass	super.h	/^		ColorClass(const int sz) : sz(sz), i(0) { init(sz); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+Maxclique::ColorClass::at	mcqd.h	/^    int& at(const int ii) const { return i[ii]; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii) const
+Maxclique::ColorClass::at	super.h	/^		int& at(const int ii) const { return i[ii]; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii) const
+Maxclique::ColorClass::dbg_i	mcqd.h	/^    void dbg_i(const string msg="") const {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const string msg=Ó) const
+Maxclique::ColorClass::dbg_i	super.h	/^		void dbg_i(const string msg="") const {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const string msg=Ó) const
+Maxclique::ColorClass::end	super.h	/^		int& end() const { return i[sz - 1]; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:() const
+Maxclique::ColorClass::i	mcqd.h	/^    int *i;$/;"	m	class:Maxclique::ColorClass	access:private
+Maxclique::ColorClass::i	super.h	/^		int *i;$/;"	m	class:Maxclique::ColorClass	access:private
+Maxclique::ColorClass::init	mcqd.h	/^    void init(const int sz) { i = new int[sz]; rewind(); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+Maxclique::ColorClass::init	super.h	/^		void init(const int sz) { i = new int[sz]; rewind(); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+Maxclique::ColorClass::operator =	mcqd.h	/^    ColorClass& operator=(const ColorClass& dh) {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const ColorClass& dh)
+Maxclique::ColorClass::operator =	super.h	/^		ColorClass& operator=(const ColorClass& dh) {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const ColorClass& dh)
+Maxclique::ColorClass::pop	mcqd.h	/^    void pop() { sz--; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::pop	super.h	/^		void pop() { sz--; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::pop	super.h	/^		void pop(const int p_ci) { i[p_ci] = -1; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int p_ci)
+Maxclique::ColorClass::push	mcqd.h	/^    void push(const int ii) { i[sz++] = ii; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii)
+Maxclique::ColorClass::push	super.h	/^		void push(const int ii) { i[sz++] = ii; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii)
+Maxclique::ColorClass::rewind	mcqd.h	/^    void rewind() { sz = 0; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::rewind	super.h	/^		void rewind() { sz = 0; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::size	mcqd.h	/^    int size() const { return sz; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:() const
+Maxclique::ColorClass::size	super.h	/^		int size() const { return sz; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:() const
+Maxclique::ColorClass::sz	mcqd.h	/^    int sz;$/;"	m	class:Maxclique::ColorClass	access:private
+Maxclique::ColorClass::sz	super.h	/^		int sz;$/;"	m	class:Maxclique::ColorClass	access:private
+Maxclique::ColorClass::~ColorClass	mcqd.h	/^    ~ColorClass() { if (i) delete [] i;$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::ColorClass::~ColorClass	super.h	/^		~ColorClass() { if (i) delete [] i;}$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+Maxclique::Maxclique	mcqd.h	/^  Maxclique(const bool* const*, const int, const float=0.025);$/;"	p	class:Maxclique	access:public	signature:(const bool* const*, const int, const float=0.025)
+Maxclique::Maxclique	mcqd.h	/^Maxclique::Maxclique (const bool* const* conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {$/;"	f	class:Maxclique	signature:(const bool* const* conn, const int sz, const float tt)
+Maxclique::Maxclique	super.h	/^	Maxclique(bool **, const int, const float=0.025);$/;"	p	class:Maxclique	access:public	signature:(bool **, const int, const float=0.025)
+Maxclique::Maxclique	super.h	/^Maxclique::Maxclique (bool **conn, const int sz, const float tt) : pk(0), level(1), Tlimit(tt), V(sz), Q(sz), QMAX(sz) {$/;"	f	class:Maxclique	signature:(bool **conn, const int sz, const float tt)
+Maxclique::Q	mcqd.h	/^  ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Maxclique::Q	super.h	/^	ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Maxclique::QMAX	mcqd.h	/^  ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Maxclique::QMAX	super.h	/^	ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Maxclique::S	mcqd.h	/^  StepCount *S;$/;"	m	class:Maxclique	access:private
+Maxclique::S	super.h	/^	StepCount *S;$/;"	m	class:Maxclique	access:private
+Maxclique::StepCount	mcqd.h	/^  class StepCount {$/;"	c	class:Maxclique	access:private
+Maxclique::StepCount	super.h	/^	class StepCount {$/;"	c	class:Maxclique	access:private
+Maxclique::StepCount::StepCount	mcqd.h	/^    StepCount() : i1(0), i2(0) {}$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+Maxclique::StepCount::StepCount	super.h	/^		StepCount() : i1(0), i2(0) {}$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+Maxclique::StepCount::get_i1	mcqd.h	/^    int get_i1() const { return i1; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+Maxclique::StepCount::get_i1	super.h	/^		int get_i1() const { return i1; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+Maxclique::StepCount::get_i2	mcqd.h	/^    int get_i2() const { return i2; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+Maxclique::StepCount::get_i2	super.h	/^		int get_i2() const { return i2; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+Maxclique::StepCount::i1	mcqd.h	/^    int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+Maxclique::StepCount::i1	super.h	/^		int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+Maxclique::StepCount::i2	mcqd.h	/^    int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+Maxclique::StepCount::i2	super.h	/^		int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+Maxclique::StepCount::inc_i1	mcqd.h	/^    void inc_i1()  { i1++; }$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+Maxclique::StepCount::inc_i1	super.h	/^		void inc_i1()  { i1++; }$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+Maxclique::StepCount::set_i1	mcqd.h	/^    void set_i1(const int ii)  { i1 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+Maxclique::StepCount::set_i1	super.h	/^		void set_i1(const int ii)  { i1 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+Maxclique::StepCount::set_i2	mcqd.h	/^    void set_i2(const int ii)  { i2 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+Maxclique::StepCount::set_i2	super.h	/^		void set_i2(const int ii)  { i2 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+Maxclique::Tlimit	mcqd.h	/^  const float Tlimit;$/;"	m	class:Maxclique	access:private
+Maxclique::Tlimit	super.h	/^	const float Tlimit;$/;"	m	class:Maxclique	access:private
+Maxclique::V	mcqd.h	/^  Vertices V;$/;"	m	class:Maxclique	access:private
+Maxclique::V	super.h	/^	Vertices V;$/;"	m	class:Maxclique	access:private
+Maxclique::Vertices	mcqd.h	/^  class Vertices {$/;"	c	class:Maxclique	access:private
+Maxclique::Vertices	super.h	/^	class Vertices {$/;"	c	class:Maxclique	access:private
+Maxclique::Vertices::Vertex	mcqd.h	/^    class Vertex {$/;"	c	class:Maxclique::Vertices	access:private
+Maxclique::Vertices::Vertex	super.h	/^		class Vertex {$/;"	c	class:Maxclique::Vertices	access:private
+Maxclique::Vertices::Vertex::d	mcqd.h	/^      int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+Maxclique::Vertices::Vertex::d	super.h	/^			int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+Maxclique::Vertices::Vertex::get_degree	mcqd.h	/^      int get_degree() const { return d; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+Maxclique::Vertices::Vertex::get_degree	super.h	/^			int get_degree() const { return d; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+Maxclique::Vertices::Vertex::get_i	mcqd.h	/^      int get_i() const { return i; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+Maxclique::Vertices::Vertex::get_i	super.h	/^			int get_i() const { return i; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+Maxclique::Vertices::Vertex::i	mcqd.h	/^      int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+Maxclique::Vertices::Vertex::i	super.h	/^			int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+Maxclique::Vertices::Vertex::set_degree	mcqd.h	/^      void set_degree(int dd) { d = dd; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(int dd)
+Maxclique::Vertices::Vertex::set_degree	super.h	/^			void set_degree(int dd) { d = dd; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(int dd)
+Maxclique::Vertices::Vertex::set_i	mcqd.h	/^      void set_i(const int ii)  { i = ii; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(const int ii)
+Maxclique::Vertices::Vertex::set_i	super.h	/^			void set_i(const int ii)  { i = ii; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(const int ii)
+Maxclique::Vertices::Vertices	mcqd.h	/^    Vertices(int size) : sz(0) { v = new Vertex[size]; }$/;"	f	class:Maxclique::Vertices	access:public	signature:(int size)
+Maxclique::Vertices::Vertices	super.h	/^		Vertices(int size) : sz(0) { v = new Vertex[size]; }$/;"	f	class:Maxclique::Vertices	access:public	signature:(int size)
+Maxclique::Vertices::at	mcqd.h	/^    Vertex& at(const int ii) const { return v[ii]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii) const
+Maxclique::Vertices::at	super.h	/^		Vertex& at(const int ii) const { return v[ii]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii) const
+Maxclique::Vertices::dbg_v	mcqd.h	/^    void dbg_v(const string msg="") const {$/;"	f	class:Maxclique::Vertices	access:public	signature:(const string msg=Ó) const
+Maxclique::Vertices::dbg_v	super.h	/^		void dbg_v(const string msg="") const {$/;"	f	class:Maxclique::Vertices	access:public	signature:(const string msg=Ó) const
+Maxclique::Vertices::desc_degree	mcqd.h	/^    static bool desc_degree(const Vertex vi, const Vertex vj) { return (vi.get_degree() > vj.get_degree()); }$/;"	f	class:Maxclique::Vertices	access:private	signature:(const Vertex vi, const Vertex vj)
+Maxclique::Vertices::desc_degree	super.h	/^		static bool desc_degree(const Vertex vi, const Vertex vj) { return (vi.get_degree() > vj.get_degree()); }$/;"	f	class:Maxclique::Vertices	access:private	signature:(const Vertex vi, const Vertex vj)
+Maxclique::Vertices::dispose	mcqd.h	/^    void dispose() { if (v) delete [] v; }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::dispose	super.h	/^		void dispose() { if (v) delete [] v; }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::end	mcqd.h	/^    Vertex& end() const { return v[sz - 1]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+Maxclique::Vertices::end	super.h	/^		Vertex& end() const { return v[sz - 1]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+Maxclique::Vertices::init_colors	mcqd.h	/^    void init_colors();$/;"	p	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::init_colors	mcqd.h	/^void Maxclique::Vertices::init_colors() { $/;"	f	class:Maxclique::Vertices	signature:()
+Maxclique::Vertices::init_colors	super.h	/^		void init_colors();$/;"	p	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::init_colors	super.h	/^void Maxclique::Vertices::init_colors() { $/;"	f	class:Maxclique::Vertices	signature:()
+Maxclique::Vertices::pop	mcqd.h	/^    void pop() { sz--; };$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::pop	super.h	/^		void pop() { sz--; };$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::push	mcqd.h	/^    void push(const int ii) { v[sz++].set_i(ii); };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii)
+Maxclique::Vertices::push	super.h	/^		void push(const int ii) { v[sz++].set_i(ii); };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii)
+Maxclique::Vertices::resize	super.h	/^		void resize(const int size) { sz = size; }$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int size)
+Maxclique::Vertices::set_degrees	mcqd.h	/^    void set_degrees(Maxclique&);$/;"	p	class:Maxclique::Vertices	access:public	signature:(Maxclique&)
+Maxclique::Vertices::set_degrees	mcqd.h	/^void Maxclique::Vertices::set_degrees(Maxclique &m) { $/;"	f	class:Maxclique::Vertices	signature:(Maxclique &m)
+Maxclique::Vertices::set_degrees	super.h	/^		void set_degrees(Maxclique&);$/;"	p	class:Maxclique::Vertices	access:public	signature:(Maxclique&)
+Maxclique::Vertices::set_degrees	super.h	/^void Maxclique::Vertices::set_degrees(Maxclique &m) { $/;"	f	class:Maxclique::Vertices	signature:(Maxclique &m)
+Maxclique::Vertices::size	mcqd.h	/^    int size() const { return sz; }$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+Maxclique::Vertices::size	super.h	/^		int size() const { return sz; }$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+Maxclique::Vertices::sort	mcqd.h	/^    void sort() { std::sort(v, v+sz, desc_degree); }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::sort	super.h	/^		void sort() { std::sort(v, v+sz, desc_degree); }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::sz	mcqd.h	/^    int sz;$/;"	m	class:Maxclique::Vertices	access:private
+Maxclique::Vertices::sz	super.h	/^		int sz;$/;"	m	class:Maxclique::Vertices	access:private
+Maxclique::Vertices::v	mcqd.h	/^    Vertex *v;$/;"	m	class:Maxclique::Vertices	access:private
+Maxclique::Vertices::v	super.h	/^		Vertex *v;$/;"	m	class:Maxclique::Vertices	access:private
+Maxclique::Vertices::~Vertices	mcqd.h	/^    ~Vertices () {}$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::Vertices::~Vertices	super.h	/^		~Vertices () {}$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+Maxclique::_mcq	mcqd.h	/^  void _mcq(int*&, int&, bool);$/;"	p	class:Maxclique	access:private	signature:(int*&, int&, bool)
+Maxclique::_mcq	mcqd.h	/^void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) { $/;"	f	class:Maxclique	signature:(int* &maxclique, int &sz, bool dyn)
+Maxclique::_mcq	super.h	/^	void _mcq(int*&, int&, bool);$/;"	p	class:Maxclique	access:private	signature:(int*&, int&, bool)
+Maxclique::_mcq	super.h	/^void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) { $/;"	f	class:Maxclique	signature:(int* &maxclique, int &sz, bool dyn)
+Maxclique::color_sort	mcqd.h	/^  void color_sort(Vertices&);$/;"	p	class:Maxclique	access:private	signature:(Vertices&)
+Maxclique::color_sort	mcqd.h	/^void Maxclique::color_sort(Vertices &R) {$/;"	f	class:Maxclique	signature:(Vertices &R)
+Maxclique::color_sort	super.h	/^	void color_sort(Vertices&, bool = false);$/;"	p	class:Maxclique	access:private	signature:(Vertices&, bool = false)
+Maxclique::color_sort	super.h	/^void Maxclique::color_sort(Vertices &R, bool sorted) {$/;"	f	class:Maxclique	signature:(Vertices &R, bool sorted)
+Maxclique::conflict	super.h	/^	bool conflict(const int, const ColorClass&);$/;"	p	class:Maxclique	access:private	signature:(const int, const ColorClass&)
+Maxclique::conflict	super.h	/^bool Maxclique::conflict(const int pi, const ColorClass &A) {$/;"	f	class:Maxclique	signature:(const int pi, const ColorClass &A)
+Maxclique::connection	mcqd.h	/^  bool connection(const int i, const int j) const { return e[i][j]; }$/;"	f	class:Maxclique	access:private	signature:(const int i, const int j) const
+Maxclique::connection	super.h	/^	bool connection(const int i, const int j) const { return e[i][j]; }$/;"	f	class:Maxclique	access:private	signature:(const int i, const int j) const
+Maxclique::count_conflict	super.h	/^	int count_conflict(int, const ColorClass&, int&);$/;"	p	class:Maxclique	access:private	signature:(int, const ColorClass&, int&)
+Maxclique::count_conflict	super.h	/^int Maxclique::count_conflict(int pi, const ColorClass& A, int &q_ci) {$/;"	f	class:Maxclique	signature:(int pi, const ColorClass& A, int &q_ci)
+Maxclique::cut	super.h	/^	void cut(const Vertices&, Vertices&);$/;"	p	class:Maxclique	access:private	signature:(const Vertices&, Vertices&)
+Maxclique::cut	super.h	/^void Maxclique::cut(const Vertices &A, Vertices &B) {$/;"	f	class:Maxclique	signature:(const Vertices &A, Vertices &B)
+Maxclique::cut1	mcqd.h	/^  bool cut1(const int, const ColorClass&);$/;"	p	class:Maxclique	access:private	signature:(const int, const ColorClass&)
+Maxclique::cut1	mcqd.h	/^bool Maxclique::cut1(const int pi, const ColorClass &A) {$/;"	f	class:Maxclique	signature:(const int pi, const ColorClass &A)
+Maxclique::cut2	mcqd.h	/^  void cut2(const Vertices&, Vertices&);$/;"	p	class:Maxclique	access:private	signature:(const Vertices&, Vertices&)
+Maxclique::cut2	mcqd.h	/^void Maxclique::cut2(const Vertices &A, Vertices &B) {$/;"	f	class:Maxclique	signature:(const Vertices &A, Vertices &B)
+Maxclique::cut_new	super.h	/^	void cut_new(Vertices&, Vertices&, int);$/;"	p	class:Maxclique	access:private	signature:(Vertices&, Vertices&, int)
+Maxclique::cut_new	super.h	/^void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {$/;"	f	class:Maxclique	signature:(Vertices &Va, Vertices &Vp, int pi)
+Maxclique::dbg_C	mcqd.h	/^  void dbg_C() const {$/;"	f	class:Maxclique	access:public	signature:() const
+Maxclique::dbg_C	super.h	/^	void dbg_C() const {$/;"	f	class:Maxclique	access:public	signature:() const
+Maxclique::dbg_conn	mcqd.h	/^  void dbg_conn() const {$/;"	f	class:Maxclique	access:public	signature:() const
+Maxclique::dbg_conn	super.h	/^	void dbg_conn() const {$/;"	f	class:Maxclique	access:public	signature:() const
+Maxclique::degree_sort	mcqd.h	/^  void degree_sort(Vertices &R) { R.set_degrees(*this); R.sort(); }$/;"	f	class:Maxclique	access:private	signature:(Vertices &R)
+Maxclique::degree_sort	super.h	/^	void degree_sort(Vertices &R) { R.set_degrees(*this); R.sort(); }$/;"	f	class:Maxclique	access:private	signature:(Vertices &R)
+Maxclique::e	mcqd.h	/^  const bool* const* e;$/;"	m	class:Maxclique	access:private
+Maxclique::e	super.h	/^	bool **e;$/;"	m	class:Maxclique	access:private
+Maxclique::expand	mcqd.h	/^  void expand(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+Maxclique::expand	mcqd.h	/^void Maxclique::expand(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+Maxclique::expand	super.h	/^	void expand(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+Maxclique::expand	super.h	/^void Maxclique::expand(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+Maxclique::expand_dyn	mcqd.h	/^  void expand_dyn(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+Maxclique::expand_dyn	mcqd.h	/^void Maxclique::expand_dyn(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+Maxclique::expand_dyn	super.h	/^	void expand_dyn(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+Maxclique::expand_dyn	super.h	/^	void expand_dyn(Vertices, Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices, Vertices)
+Maxclique::expand_dyn	super.h	/^void Maxclique::expand_dyn(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+Maxclique::expand_dyn	super.h	/^void Maxclique::expand_dyn(Vertices Va, Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices Va, Vertices R)
+Maxclique::level	mcqd.h	/^  int pk, level;$/;"	m	class:Maxclique	access:private
+Maxclique::level	super.h	/^	int pk, level;$/;"	m	class:Maxclique	access:private
+Maxclique::mcq	mcqd.h	/^  void mcq(int* &maxclique, int &sz) { _mcq(maxclique, sz, false); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+Maxclique::mcq	super.h	/^	void mcq(int* &maxclique, int &sz) { _mcq(maxclique, sz, false); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+Maxclique::mcqdyn	mcqd.h	/^  void mcqdyn(int* &maxclique, int &sz) { _mcq(maxclique, sz, true); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+Maxclique::mcqdyn	super.h	/^	void mcqdyn(int* &maxclique, int &sz) { _mcq(maxclique, sz, true); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+Maxclique::mcs_conflict	super.h	/^	bool mcs_conflict(int, const ColorClass&);$/;"	p	class:Maxclique	access:private	signature:(int, const ColorClass&)
+Maxclique::mcs_conflict	super.h	/^bool Maxclique::mcs_conflict(int pi, const ColorClass& A) {$/;"	f	class:Maxclique	signature:(int pi, const ColorClass& A)
+Maxclique::permute_vertices	super.h	/^	void permute_vertices();$/;"	p	class:Maxclique	access:private	signature:()
+Maxclique::permute_vertices	super.h	/^void Maxclique::permute_vertices() {$/;"	f	class:Maxclique	signature:()
+Maxclique::pk	mcqd.h	/^  int pk, level;$/;"	m	class:Maxclique	access:private
+Maxclique::pk	super.h	/^	int pk, level;$/;"	m	class:Maxclique	access:private
+Maxclique::re_color	super.h	/^	void re_color(int, int);$/;"	p	class:Maxclique	access:private	signature:(int, int)
+Maxclique::re_color	super.h	/^void Maxclique::re_color(int k, int min_k) {$/;"	f	class:Maxclique	signature:(int k, int min_k)
+Maxclique::re_color_sort	super.h	/^	void re_color_sort(Vertices&, Vertices&, bool = true);$/;"	p	class:Maxclique	access:private	signature:(Vertices&, Vertices&, bool = true)
+Maxclique::re_color_sort	super.h	/^void Maxclique::re_color_sort(Vertices &Va, Vertices &R, bool recolor) {$/;"	f	class:Maxclique	signature:(Vertices &Va, Vertices &R, bool recolor)
+Maxclique::sat	super.h	/^	std::set<int> *sat;$/;"	m	class:Maxclique	access:private
+Maxclique::sat_color_sort	super.h	/^	void sat_color_sort(Vertices&);$/;"	p	class:Maxclique	access:private	signature:(Vertices&)
+Maxclique::sat_color_sort	super.h	/^void Maxclique::sat_color_sort(Vertices &R) {$/;"	f	class:Maxclique	signature:(Vertices &R)
+Maxclique::steps	mcqd.h	/^  int steps() const { return pk; }$/;"	f	class:Maxclique	access:public	signature:() const
+Maxclique::steps	super.h	/^	int steps() const { return pk; }$/;"	f	class:Maxclique	access:public	signature:() const
+Maxclique::~Maxclique	mcqd.h	/^  ~Maxclique() {$/;"	f	class:Maxclique	access:public	signature:()
+Maxclique::~Maxclique	super.h	/^	~Maxclique() {$/;"	f	class:Maxclique	access:public	signature:()
+Q	mcqd.h	/^  ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+Q	super.h	/^	ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+QMAX	mcqd.h	/^  ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+QMAX	super.h	/^	ColorClass *C, QMAX, Q;$/;"	m	class:Maxclique	access:private
+S	mcqd.h	/^  StepCount *S;$/;"	m	class:Maxclique	access:private
+S	super.h	/^	StepCount *S;$/;"	m	class:Maxclique	access:private
+SUPER_H	super.h	2;"	d
+StepCount	mcqd.h	/^    StepCount() : i1(0), i2(0) {}$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+StepCount	mcqd.h	/^  class StepCount {$/;"	c	class:Maxclique	access:private
+StepCount	super.h	/^		StepCount() : i1(0), i2(0) {}$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+StepCount	super.h	/^	class StepCount {$/;"	c	class:Maxclique	access:private
+Tlimit	mcqd.h	/^  const float Tlimit;$/;"	m	class:Maxclique	access:private
+Tlimit	super.h	/^	const float Tlimit;$/;"	m	class:Maxclique	access:private
+V	mcqd.h	/^  Vertices V;$/;"	m	class:Maxclique	access:private
+V	super.h	/^	Vertices V;$/;"	m	class:Maxclique	access:private
+Vertex	mcqd.h	/^    class Vertex {$/;"	c	class:Maxclique::Vertices	access:private
+Vertex	super.h	/^		class Vertex {$/;"	c	class:Maxclique::Vertices	access:private
+Vertices	mcqd.h	/^    Vertices(int size) : sz(0) { v = new Vertex[size]; }$/;"	f	class:Maxclique::Vertices	access:public	signature:(int size)
+Vertices	mcqd.h	/^  class Vertices {$/;"	c	class:Maxclique	access:private
+Vertices	super.h	/^		Vertices(int size) : sz(0) { v = new Vertex[size]; }$/;"	f	class:Maxclique::Vertices	access:public	signature:(int size)
+Vertices	super.h	/^	class Vertices {$/;"	c	class:Maxclique	access:private
+_mcq	mcqd.h	/^  void _mcq(int*&, int&, bool);$/;"	p	class:Maxclique	access:private	signature:(int*&, int&, bool)
+_mcq	mcqd.h	/^void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) { $/;"	f	class:Maxclique	signature:(int* &maxclique, int &sz, bool dyn)
+_mcq	super.h	/^	void _mcq(int*&, int&, bool);$/;"	p	class:Maxclique	access:private	signature:(int*&, int&, bool)
+_mcq	super.h	/^void Maxclique::_mcq(int* &maxclique, int &sz, bool dyn) { $/;"	f	class:Maxclique	signature:(int* &maxclique, int &sz, bool dyn)
+at	mcqd.h	/^    Vertex& at(const int ii) const { return v[ii]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii) const
+at	mcqd.h	/^    int& at(const int ii) const { return i[ii]; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii) const
+at	super.h	/^		Vertex& at(const int ii) const { return v[ii]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii) const
+at	super.h	/^		int& at(const int ii) const { return i[ii]; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii) const
+color_sort	mcqd.h	/^  void color_sort(Vertices&);$/;"	p	class:Maxclique	access:private	signature:(Vertices&)
+color_sort	mcqd.h	/^void Maxclique::color_sort(Vertices &R) {$/;"	f	class:Maxclique	signature:(Vertices &R)
+color_sort	super.h	/^	void color_sort(Vertices&, bool = false);$/;"	p	class:Maxclique	access:private	signature:(Vertices&, bool = false)
+color_sort	super.h	/^void Maxclique::color_sort(Vertices &R, bool sorted) {$/;"	f	class:Maxclique	signature:(Vertices &R, bool sorted)
+conflict	super.h	/^	bool conflict(const int, const ColorClass&);$/;"	p	class:Maxclique	access:private	signature:(const int, const ColorClass&)
+conflict	super.h	/^bool Maxclique::conflict(const int pi, const ColorClass &A) {$/;"	f	class:Maxclique	signature:(const int pi, const ColorClass &A)
+connection	mcqd.h	/^  bool connection(const int i, const int j) const { return e[i][j]; }$/;"	f	class:Maxclique	access:private	signature:(const int i, const int j) const
+connection	super.h	/^	bool connection(const int i, const int j) const { return e[i][j]; }$/;"	f	class:Maxclique	access:private	signature:(const int i, const int j) const
+count_conflict	super.h	/^	int count_conflict(int, const ColorClass&, int&);$/;"	p	class:Maxclique	access:private	signature:(int, const ColorClass&, int&)
+count_conflict	super.h	/^int Maxclique::count_conflict(int pi, const ColorClass& A, int &q_ci) {$/;"	f	class:Maxclique	signature:(int pi, const ColorClass& A, int &q_ci)
+cut	super.h	/^	void cut(const Vertices&, Vertices&);$/;"	p	class:Maxclique	access:private	signature:(const Vertices&, Vertices&)
+cut	super.h	/^void Maxclique::cut(const Vertices &A, Vertices &B) {$/;"	f	class:Maxclique	signature:(const Vertices &A, Vertices &B)
+cut1	mcqd.h	/^  bool cut1(const int, const ColorClass&);$/;"	p	class:Maxclique	access:private	signature:(const int, const ColorClass&)
+cut1	mcqd.h	/^bool Maxclique::cut1(const int pi, const ColorClass &A) {$/;"	f	class:Maxclique	signature:(const int pi, const ColorClass &A)
+cut2	mcqd.h	/^  void cut2(const Vertices&, Vertices&);$/;"	p	class:Maxclique	access:private	signature:(const Vertices&, Vertices&)
+cut2	mcqd.h	/^void Maxclique::cut2(const Vertices &A, Vertices &B) {$/;"	f	class:Maxclique	signature:(const Vertices &A, Vertices &B)
+cut_new	super.h	/^	void cut_new(Vertices&, Vertices&, int);$/;"	p	class:Maxclique	access:private	signature:(Vertices&, Vertices&, int)
+cut_new	super.h	/^void Maxclique::cut_new(Vertices &Va, Vertices &Vp, int pi) {$/;"	f	class:Maxclique	signature:(Vertices &Va, Vertices &Vp, int pi)
+d	mcqd.h	/^      int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+d	super.h	/^			int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+dbg_C	mcqd.h	/^  void dbg_C() const {$/;"	f	class:Maxclique	access:public	signature:() const
+dbg_C	super.h	/^	void dbg_C() const {$/;"	f	class:Maxclique	access:public	signature:() const
+dbg_conn	mcqd.h	/^  void dbg_conn() const {$/;"	f	class:Maxclique	access:public	signature:() const
+dbg_conn	super.h	/^	void dbg_conn() const {$/;"	f	class:Maxclique	access:public	signature:() const
+dbg_i	mcqd.h	/^    void dbg_i(const string msg="") const {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const string msg=Ó) const
+dbg_i	super.h	/^		void dbg_i(const string msg="") const {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const string msg=Ó) const
+dbg_v	mcqd.h	/^    void dbg_v(const string msg="") const {$/;"	f	class:Maxclique::Vertices	access:public	signature:(const string msg=Ó) const
+dbg_v	super.h	/^		void dbg_v(const string msg="") const {$/;"	f	class:Maxclique::Vertices	access:public	signature:(const string msg=Ó) const
+degree_sort	mcqd.h	/^  void degree_sort(Vertices &R) { R.set_degrees(*this); R.sort(); }$/;"	f	class:Maxclique	access:private	signature:(Vertices &R)
+degree_sort	super.h	/^	void degree_sort(Vertices &R) { R.set_degrees(*this); R.sort(); }$/;"	f	class:Maxclique	access:private	signature:(Vertices &R)
+desc_degree	mcqd.h	/^    static bool desc_degree(const Vertex vi, const Vertex vj) { return (vi.get_degree() > vj.get_degree()); }$/;"	f	class:Maxclique::Vertices	access:private	signature:(const Vertex vi, const Vertex vj)
+desc_degree	super.h	/^		static bool desc_degree(const Vertex vi, const Vertex vj) { return (vi.get_degree() > vj.get_degree()); }$/;"	f	class:Maxclique::Vertices	access:private	signature:(const Vertex vi, const Vertex vj)
+dispose	mcqd.h	/^    void dispose() { if (v) delete [] v; }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+dispose	super.h	/^		void dispose() { if (v) delete [] v; }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+e	mcqd.h	/^  const bool* const* e;$/;"	m	class:Maxclique	access:private
+e	super.h	/^	bool **e;$/;"	m	class:Maxclique	access:private
+end	mcqd.h	/^    Vertex& end() const { return v[sz - 1]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+end	super.h	/^		Vertex& end() const { return v[sz - 1]; };$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+end	super.h	/^		int& end() const { return i[sz - 1]; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:() const
+expand	mcqd.h	/^  void expand(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+expand	mcqd.h	/^void Maxclique::expand(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+expand	super.h	/^	void expand(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+expand	super.h	/^void Maxclique::expand(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+expand_dyn	mcqd.h	/^  void expand_dyn(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+expand_dyn	mcqd.h	/^void Maxclique::expand_dyn(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+expand_dyn	super.h	/^	void expand_dyn(Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices)
+expand_dyn	super.h	/^	void expand_dyn(Vertices, Vertices);$/;"	p	class:Maxclique	access:private	signature:(Vertices, Vertices)
+expand_dyn	super.h	/^void Maxclique::expand_dyn(Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices R)
+expand_dyn	super.h	/^void Maxclique::expand_dyn(Vertices Va, Vertices R) {$/;"	f	class:Maxclique	signature:(Vertices Va, Vertices R)
+get_degree	mcqd.h	/^      int get_degree() const { return d; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+get_degree	super.h	/^			int get_degree() const { return d; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+get_i	mcqd.h	/^      int get_i() const { return i; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+get_i	super.h	/^			int get_i() const { return i; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:() const
+get_i1	mcqd.h	/^    int get_i1() const { return i1; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+get_i1	super.h	/^		int get_i1() const { return i1; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+get_i2	mcqd.h	/^    int get_i2() const { return i2; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+get_i2	super.h	/^		int get_i2() const { return i2; }$/;"	f	class:Maxclique::StepCount	access:public	signature:() const
+i	mcqd.h	/^      int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+i	mcqd.h	/^    int *i;$/;"	m	class:Maxclique::ColorClass	access:private
+i	super.h	/^			int i, d;$/;"	m	class:Maxclique::Vertices::Vertex	access:private
+i	super.h	/^		int *i;$/;"	m	class:Maxclique::ColorClass	access:private
+i1	mcqd.h	/^    int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+i1	super.h	/^		int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+i2	mcqd.h	/^    int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+i2	super.h	/^		int i1, i2;$/;"	m	class:Maxclique::StepCount	access:private
+inc_i1	mcqd.h	/^    void inc_i1()  { i1++; }$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+inc_i1	super.h	/^		void inc_i1()  { i1++; }$/;"	f	class:Maxclique::StepCount	access:public	signature:()
+init	mcqd.h	/^    void init(const int sz) { i = new int[sz]; rewind(); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+init	super.h	/^		void init(const int sz) { i = new int[sz]; rewind(); }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int sz)
+init_colors	mcqd.h	/^    void init_colors();$/;"	p	class:Maxclique::Vertices	access:public	signature:()
+init_colors	mcqd.h	/^void Maxclique::Vertices::init_colors() { $/;"	f	class:Maxclique::Vertices	signature:()
+init_colors	super.h	/^		void init_colors();$/;"	p	class:Maxclique::Vertices	access:public	signature:()
+init_colors	super.h	/^void Maxclique::Vertices::init_colors() { $/;"	f	class:Maxclique::Vertices	signature:()
+level	mcqd.h	/^  int pk, level;$/;"	m	class:Maxclique	access:private
+level	super.h	/^	int pk, level;$/;"	m	class:Maxclique	access:private
+main	mcqd.cpp	/^int main(int argc, char *argv[]) {$/;"	f	signature:(int argc, char *argv[])
+main	super.cpp	/^int main(int argc, char *argv[]) {$/;"	f	signature:(int argc, char *argv[])
+mcq	mcqd.h	/^  void mcq(int* &maxclique, int &sz) { _mcq(maxclique, sz, false); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+mcq	super.h	/^	void mcq(int* &maxclique, int &sz) { _mcq(maxclique, sz, false); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+mcqdyn	mcqd.h	/^  void mcqdyn(int* &maxclique, int &sz) { _mcq(maxclique, sz, true); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+mcqdyn	super.h	/^	void mcqdyn(int* &maxclique, int &sz) { _mcq(maxclique, sz, true); }$/;"	f	class:Maxclique	access:public	signature:(int* &maxclique, int &sz)
+mcs_conflict	super.h	/^	bool mcs_conflict(int, const ColorClass&);$/;"	p	class:Maxclique	access:private	signature:(int, const ColorClass&)
+mcs_conflict	super.h	/^bool Maxclique::mcs_conflict(int pi, const ColorClass& A) {$/;"	f	class:Maxclique	signature:(int pi, const ColorClass& A)
+operator =	mcqd.h	/^    ColorClass& operator=(const ColorClass& dh) {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const ColorClass& dh)
+operator =	super.h	/^		ColorClass& operator=(const ColorClass& dh) {$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const ColorClass& dh)
+permute_vertices	super.h	/^	void permute_vertices();$/;"	p	class:Maxclique	access:private	signature:()
+permute_vertices	super.h	/^void Maxclique::permute_vertices() {$/;"	f	class:Maxclique	signature:()
+pk	mcqd.h	/^  int pk, level;$/;"	m	class:Maxclique	access:private
+pk	super.h	/^	int pk, level;$/;"	m	class:Maxclique	access:private
+pop	mcqd.h	/^    void pop() { sz--; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+pop	mcqd.h	/^    void pop() { sz--; };$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+pop	super.h	/^		void pop() { sz--; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+pop	super.h	/^		void pop() { sz--; };$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+pop	super.h	/^		void pop(const int p_ci) { i[p_ci] = -1; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int p_ci)
+push	mcqd.h	/^    void push(const int ii) { i[sz++] = ii; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii)
+push	mcqd.h	/^    void push(const int ii) { v[sz++].set_i(ii); };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii)
+push	super.h	/^		void push(const int ii) { i[sz++] = ii; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:(const int ii)
+push	super.h	/^		void push(const int ii) { v[sz++].set_i(ii); };$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int ii)
+re_color	super.h	/^	void re_color(int, int);$/;"	p	class:Maxclique	access:private	signature:(int, int)
+re_color	super.h	/^void Maxclique::re_color(int k, int min_k) {$/;"	f	class:Maxclique	signature:(int k, int min_k)
+re_color_sort	super.h	/^	void re_color_sort(Vertices&, Vertices&, bool = true);$/;"	p	class:Maxclique	access:private	signature:(Vertices&, Vertices&, bool = true)
+re_color_sort	super.h	/^void Maxclique::re_color_sort(Vertices &Va, Vertices &R, bool recolor) {$/;"	f	class:Maxclique	signature:(Vertices &Va, Vertices &R, bool recolor)
+read_dimacs	mcqd.cpp	/^void read_dimacs(string name, bool** &conn, int &size) {$/;"	f	signature:(string name, bool** &conn, int &size)
+read_file	super.cpp	/^void read_file(string name, bool ** &conn, int &size) {$/;"	f	signature:(string name, bool ** &conn, int &size)
+resize	super.h	/^		void resize(const int size) { sz = size; }$/;"	f	class:Maxclique::Vertices	access:public	signature:(const int size)
+rewind	mcqd.h	/^    void rewind() { sz = 0; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+rewind	super.h	/^		void rewind() { sz = 0; };$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+sat	super.h	/^	std::set<int> *sat;$/;"	m	class:Maxclique	access:private
+sat_color_sort	super.h	/^	void sat_color_sort(Vertices&);$/;"	p	class:Maxclique	access:private	signature:(Vertices&)
+sat_color_sort	super.h	/^void Maxclique::sat_color_sort(Vertices &R) {$/;"	f	class:Maxclique	signature:(Vertices &R)
+set_degree	mcqd.h	/^      void set_degree(int dd) { d = dd; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(int dd)
+set_degree	super.h	/^			void set_degree(int dd) { d = dd; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(int dd)
+set_degrees	mcqd.h	/^    void set_degrees(Maxclique&);$/;"	p	class:Maxclique::Vertices	access:public	signature:(Maxclique&)
+set_degrees	mcqd.h	/^void Maxclique::Vertices::set_degrees(Maxclique &m) { $/;"	f	class:Maxclique::Vertices	signature:(Maxclique &m)
+set_degrees	super.h	/^		void set_degrees(Maxclique&);$/;"	p	class:Maxclique::Vertices	access:public	signature:(Maxclique&)
+set_degrees	super.h	/^void Maxclique::Vertices::set_degrees(Maxclique &m) { $/;"	f	class:Maxclique::Vertices	signature:(Maxclique &m)
+set_i	mcqd.h	/^      void set_i(const int ii)  { i = ii; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(const int ii)
+set_i	super.h	/^			void set_i(const int ii)  { i = ii; }$/;"	f	class:Maxclique::Vertices::Vertex	access:public	signature:(const int ii)
+set_i1	mcqd.h	/^    void set_i1(const int ii)  { i1 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+set_i1	super.h	/^		void set_i1(const int ii)  { i1 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+set_i2	mcqd.h	/^    void set_i2(const int ii)  { i2 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+set_i2	super.h	/^		void set_i2(const int ii)  { i2 = ii; }$/;"	f	class:Maxclique::StepCount	access:public	signature:(const int ii)
+size	mcqd.h	/^    int size() const { return sz; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:() const
+size	mcqd.h	/^    int size() const { return sz; }$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+size	super.h	/^		int size() const { return sz; }$/;"	f	class:Maxclique::ColorClass	access:public	signature:() const
+size	super.h	/^		int size() const { return sz; }$/;"	f	class:Maxclique::Vertices	access:public	signature:() const
+sort	mcqd.h	/^    void sort() { std::sort(v, v+sz, desc_degree); }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+sort	super.h	/^		void sort() { std::sort(v, v+sz, desc_degree); }$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+steps	mcqd.h	/^  int steps() const { return pk; }$/;"	f	class:Maxclique	access:public	signature:() const
+steps	super.h	/^	int steps() const { return pk; }$/;"	f	class:Maxclique	access:public	signature:() const
+sz	mcqd.h	/^    int sz;$/;"	m	class:Maxclique::ColorClass	access:private
+sz	mcqd.h	/^    int sz;$/;"	m	class:Maxclique::Vertices	access:private
+sz	super.h	/^		int sz;$/;"	m	class:Maxclique::ColorClass	access:private
+sz	super.h	/^		int sz;$/;"	m	class:Maxclique::Vertices	access:private
+v	mcqd.h	/^    Vertex *v;$/;"	m	class:Maxclique::Vertices	access:private
+v	super.h	/^		Vertex *v;$/;"	m	class:Maxclique::Vertices	access:private
+~ColorClass	mcqd.h	/^    ~ColorClass() { if (i) delete [] i;$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+~ColorClass	super.h	/^		~ColorClass() { if (i) delete [] i;}$/;"	f	class:Maxclique::ColorClass	access:public	signature:()
+~Maxclique	mcqd.h	/^  ~Maxclique() {$/;"	f	class:Maxclique	access:public	signature:()
+~Maxclique	super.h	/^	~Maxclique() {$/;"	f	class:Maxclique	access:public	signature:()
+~Vertices	mcqd.h	/^    ~Vertices () {}$/;"	f	class:Maxclique::Vertices	access:public	signature:()
+~Vertices	super.h	/^		~Vertices () {}$/;"	f	class:Maxclique::Vertices	access:public	signature:()
